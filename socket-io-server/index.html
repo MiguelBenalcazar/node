@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Hello world</title>
+   </head>
+   <body>
+      Hello world
+      <h1>hhahaha</h1>
+
+      <script src = "/socket.io/socket.io.js"></script>
+      <script>
+      var socket = io();
+      socket.on('message', function(data){
+         document.writeln(data);
+      });
+
+      socket.on('testerEvent', function(data){
+         document.writeln(data.a);
+      });
+      //send data from cient to server
+      socket.emit('clientEvent', "Sent an event from the client!");
+      //get event to everyone
+      socket.on('broadcast', function(data){
+         document.body.innerHTML = " ";
+         document.writeln(data.b);
+      });
+
+      socket.on("newclientconnect", function(data){
+         document.body.innerHTML = '';
+         document.writeln(data.obj);
+
+      });
+
+      </script>
+
+   </body>
+</html>

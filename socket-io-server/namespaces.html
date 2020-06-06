@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Hello world</title>
+   </head>
+   <body>
+      Hello world
+     
+      <script src = "/socket.io/socket.io.js"></script>
+      <script>
+      var socket = io('/myspace');
+      socket.on('hi', function(data){
+         document.body.innerHTML = '';
+         document.writeln(data);
+      });
+
+
+      </script>
+
+   </body>
+</html>
