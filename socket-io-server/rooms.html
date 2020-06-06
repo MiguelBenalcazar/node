@@ -15,6 +15,9 @@
          document.body.innerHTML = '';
          document.write(data);
       });
+      socket.on('connect_failed', function() {
+         document.write("Sorry, there seems to be an issue with the connection!");
+      });
    </script>
 
 </body>
